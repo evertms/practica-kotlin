@@ -1,3 +1,4 @@
 fun main() {
-    println("Hello World!")
+    val hello = "Hello Kotlin"
+    println(hello)
 }
