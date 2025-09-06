@@ -20,17 +20,8 @@ fun main() {
     val isAgeOdd : Boolean = age % 2 == 0
     val myGender = Gender.Masculino
 
-    /*val message = """
-        ¡Hola! Soy $name
-        Materia: $subject
-        Peso: $weight
-        Altura: $height
-        Edad: $age
-        Edad es par: $isAgeOdd
-        Género: $myGender
-    """.trimIndent()*/
-    saludar(nombreCompleto = name)
-    saludar("Buenas tardes", name)
-    println(mostrarGenero(myGender))
-    //println(message)
+    // En los comentarios de al lado se mostrará el output esperado
+    saludar(nombreCompleto = name) // Hola, soy Evert Moreno Serrate
+    saludar("Buenas tardes", name) // Buenas tardes, soy Evert Moreno Serrate
+    println(mostrarGenero(myGender)) // Género: Masculino
 }
