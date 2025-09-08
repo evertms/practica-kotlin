@@ -1,36 +1,41 @@
-enum class Gender {
-    Masculino,
-    Femenino
+enum class Gender (
+    val description: String,
+    val abbreviation: Char
+) {
+    Male("Masculino", 'M') ,
+    Female("Femenino", 'F')
 }
 
-fun saludar(saludo : String = "Hola", nombreCompleto: String) {
-    println("$saludo, soy $nombreCompleto")
-}
+data class Persona (
+    val fullName: String,
+    val weight: Double,
+    val height: Double,
+    val age: Int,
+    val gender: Gender
+) {
+    fun isLegalAge (): Boolean = age >= 18
 
-fun mostrarGenero(gender: Gender) : String {
-    return "Género: $gender"
+    fun greet(greet: String = "Hola") {
+        println("$greet, soy $fullName")
+    }
+
+    fun showGender(): String {
+        return "Género: ${gender.description}"
+    }
 }
 
 fun main() {
     val name = "Evert Moreno Serrate"
-    val subject = "Aplicaciones móviles"
     val weight = 71.5
     val height = 1.8
     val age = 20
-    val isAgeOdd : Boolean = age % 2 == 0
-    val myGender = Gender.Masculino
+    val myGender = Gender.Male
 
-    /*val message = """
-        ¡Hola! Soy $name
-        Materia: $subject
-        Peso: $weight
-        Altura: $height
-        Edad: $age
-        Edad es par: $isAgeOdd
-        Género: $myGender
-    """.trimIndent()*/
-    saludar(nombreCompleto = name)
-    saludar("Buenas tardes", name)
-    println(mostrarGenero(myGender))
-    //println(message)
+    val evert = Persona(name, weight, height, age, myGender)
+    println(evert.isLegalAge())
+    evert.greet("Buenas tardes")
+    evert.greet()
+    println(evert.showGender())
+
+    println(evert.gender.abbreviation)
 }
